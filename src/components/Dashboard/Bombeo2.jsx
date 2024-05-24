@@ -8,7 +8,7 @@ import Aside from "./Aside";
 
 const VISIBLE_FIELDS = ["name", "country", "isAdmin"];
 
-const Inicio = () => {
+const Bombeo2 = () => {
   const [abrir, setAbrir] = useState(false);
   const { data } = useDemoData({
     dataSet: "Employee",
@@ -46,7 +46,7 @@ const Inicio = () => {
   return (
     <>
      <Aside abrir={abrir} setAbrir={setAbrir} />
-    <Navbar abrir={abrir} setAbrir={setAbrir}  pageTitle="Bombeo N°1" /> {/* Asegúrate de pasar las props correctamente */}
+    <Navbar abrir={abrir} setAbrir={setAbrir}  pageTitle="Bombeo N°2" /> {/* Asegúrate de pasar las props correctamente */}
       <div className="container-fluid py-4">
         <div className="row">
           <div className="card-body pt-0 p-3 bg-gradient-primary3" >
@@ -123,4 +123,4 @@ const Inicio = () => {
   );
 };
 
-export default Inicio;
+export default Bombeo2;
