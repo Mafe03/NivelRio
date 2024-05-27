@@ -42,7 +42,7 @@ const Aside = ({ abrir }) => {
                 src={logo}
                 className="navbar-brand-img h-100"
                 alt="main_logo"
-              />
+              />{" "}
               <span className="ms-1 font-weight-bold text-white">
                 EMCARTAGO
               </span>
@@ -64,7 +64,7 @@ const Aside = ({ abrir }) => {
     <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
       <i className="material-icons opacity-10">dashboard</i>
     </div>
-    <span className="nav-link-text ms-1">Bombeo N°1</span>
+    <span className="nav-link-text ms-1">Planta N°1</span>
   </NavLink>
 </li>
                 
@@ -77,7 +77,7 @@ const Aside = ({ abrir }) => {
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                     <i className="material-icons opacity-10">receipt_long</i>
                   </div>
-                  <span className="nav-link-text ms-1">Bombeo N°2</span>
+                  <span className="nav-link-text ms-1">Planta N°2</span>
                 </a>
                 </NavLink>
               </li>
@@ -99,14 +99,13 @@ const Aside = ({ abrir }) => {
               ></i>
               <a
                 className="navbar-brand m-0"
-                href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
                 target="_blank"
               >
                 <img
                   src={logo}
                   className="navbar-brand-img h-100"
                   alt="main_logo"
-                />
+                />{" "}
                 <span className="ms-1 font-weight-bold text-white">
                   EMCARTAGO
                 </span>
@@ -124,7 +123,7 @@ const Aside = ({ abrir }) => {
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                       <i className="material-icons opacity-10">dashboard</i>
                     </div>
-                    <span className="nav-link-text ms-1">Bombeo N°1</span>
+                    <span className="nav-link-text ms-1">Planta N°1</span>
                   </a>
                   </NavLink>
                 </li>
@@ -134,7 +133,7 @@ const Aside = ({ abrir }) => {
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                     <i className="material-icons opacity-10">receipt_long</i>
                   </div>
-                  <span className="nav-link-text ms-1">Bombeo N°2</span>
+                  <span className="nav-link-text ms-1">Planta N°2</span>
                 </a>
                 </NavLink>
               </li>

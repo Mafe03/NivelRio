@@ -45,7 +45,7 @@ const Navbar = ({ abrir, setAbrir, pageTitle }) => {
               </a>
 
               <a href="javascript:;" className="nav-link text-body p-0 px-3">
-                <i className="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+                <i className="fa fa-sign-out fixed-plugin-button-nav cursor-pointer"></i>
               </a>
             </li>
             <li className="nav-item px-3 d-flex align-items-center"></li>
