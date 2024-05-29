@@ -12,19 +12,26 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   //console.log(Autenticado)
-
   const autenticarUsuario = async () => {
     //obtener datos del usuario logueado
-   
+
     const user = localStorage.getItem("user");
     //console.log("EL TOKEN", token);
     //console.log("EL USER", user);
     // validamos que los datos existan en el localstorage
-    if ( user === null) {
-     // console.log("aca entro");
+    if (user === null) {
+      // console.log("aca entro");
       return false;
     }
-  const id = user
+    console.log(user);
+    // si existen los transformamos en objeto javascript para manipular el ID del usuario
+    const userObj = JSON.parse(user);
+    console.log("OBJETO COMPLETO", userObj);
+    console.log("LOS DATOS DEL USER", userObj);
+    console.log("EL ID DEL USER", userObj.ter_num_id);
+
+    const id = userObj.ter_num_id;
+    console.log("EL ID: ", id);
     // Comprobacion del token del localstorage vs el del Backend
     try {
       const request = await fetch(
@@ -37,14 +44,13 @@ export const AuthProvider = ({ children }) => {
           },
         }
       );
-      //console.log("EL REQUEST", request);
-      if (request.status === 400) {
+      console.log("EL REQUEST", request);
+      if (request.status === 500) {
         return false;
       } else {
         const data = await request.json();
-        //console.log("LA DATA", data.tercero[0]);
+        console.log("LA DATA", data.tercero[0]);
         setAutenticado(data.tercero[0]);
-       
       }
     } catch (error) {
       console.log("EL ERROR", error);

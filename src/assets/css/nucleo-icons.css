@@ -596,5 +596,17 @@ License - nucleoapp.com/license/
 .bg-gradient-primary1 {
   background-image: linear-gradient(195deg, #2565db 0%, #0f40a2 100%);
 }
+<<<<<<< HEAD
 /* all icon font classes list here */
+=======
+
+.bg-gradient-primary2 {
+  background-image: linear-gradient(195deg, #3c77e6 0%, #3863b8 100%);
+ 
+}
+.bg-gradient-primary3 {
+  background-image: linear-gradient(195deg, #e2f0ff 0%, #ccd9f0 100%);
+ 
+}
+>>>>>>> master
 

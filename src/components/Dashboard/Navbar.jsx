@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
-const Navbar = () => {
-  const [isAsideOpen, setIsAsideOpen] = useState(false);
-
+const Navbar = ({ abrir, setAbrir, pageTitle }) => {
   const toggleAside = () => {
-      setIsAsideOpen(!isAsideOpen);
+    setAbrir(!abrir);
   };
+
   return (
     <>
       <nav
@@ -25,45 +24,35 @@ const Navbar = () => {
                 className="breadcrumb-item text-sm text-dark active"
                 aria-current="page"
               >
-                Tables
+                {pageTitle}
               </li>
             </ol>
-            <h6 className="font-weight-bolder mb-0">Tables</h6>
+            <h6 className="font-weight-bolder mb-0">{pageTitle}</h6>
           </nav>
           <ul className="navbar-nav  justify-content-end">
-             
-              
-              <li className="nav-item d-xl-none mt-2 ps-3 d-flex align-items-center">
-                <a
-                  href="javascript:;"
-                  className="nav-link text-body p-0"
-                  id="iconNavbarSidenav"
-                  onClick={toggleAside}
-                >
-                  <div className="sidenav-toggler-inner">
-                    <i className="sidenav-toggler-line"></i>
-                    <i className="sidenav-toggler-line"></i>
-                    <i className="sidenav-toggler-line"></i>
-                  </div>
-                </a>
+            <li className="nav-item d-xl-none mt-2 ps-3 d-flex align-items-center">
+              <a
+                href="javascript:;"
+                className="nav-link text-body p-0"
+                id="iconNavbarSidenav"
+                onClick={toggleAside}
+              >
+                <div className="sidenav-toggler-inner">
+                  <i className="sidenav-toggler-line"></i>
+                  <i className="sidenav-toggler-line"></i>
+                  <i className="sidenav-toggler-line"></i>
+                </div>
+              </a>
 
-                <a href="javascript:;" className="nav-link text-body p-0 px-3">
-                  <i className="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-                </a>
-              </li>
-              <li className="nav-item px-3 d-flex align-items-center">
-               
-              </li>
-             
-              
-            </ul>
-           
-          
-          
+              <a href="javascript:;" className="nav-link text-body p-0 px-3">
+                <i className="fa fa-sign-out fixed-plugin-button-nav cursor-pointer"></i>
+              </a>
+            </li>
+            <li className="nav-item px-3 d-flex align-items-center"></li>
+          </ul>
         </div>
-        
       </nav>
-      <hr class="dark horizontal my-0"/>
+      <hr className="dark horizontal my-0" />
     </>
   );
 };

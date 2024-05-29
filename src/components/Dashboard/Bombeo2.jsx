@@ -47,7 +47,7 @@ function a11yProps(index) {
 
 const VISIBLE_FIELDS = ["Fecha", "Hora", "Lectura"];
 
-const Inicio = () => {
+const Bombeo2 = () => {
   const [abrir, setAbrir] = useState(false);
   const { data } = useDemoData({
     dataSet: "Employee",
@@ -503,4 +503,4 @@ const Inicio = () => {
   );
 };
 
-export default Inicio;
+export default Bombeo2;

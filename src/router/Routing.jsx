@@ -5,6 +5,7 @@ import Inicio from '../components/Dashboard/Inicio';
 import { AuthProvider } from '../context/AuthProvide.jsx'; // Verifica que el nombre del archivo sea correcto
 import Layout from '../components/Public/Layout'; // Asegúrate de que el nombre del componente sea correcto
 import Login from '../components/Public/Login';
+import Bombeo2 from '../components/Dashboard/Bombeo2';
 
 const Routing = () => {
   return (
@@ -16,6 +17,10 @@ const Routing = () => {
           </Route>
           <Route path="/dashboard" element={<LayoutDash />}>
             <Route index element={<Inicio />} />
+<<<<<<< HEAD
+=======
+            <Route path="Bombeo2" element={<Bombeo2/>} />
+>>>>>>> master
           </Route>
         </Routes>
       </AuthProvider>
