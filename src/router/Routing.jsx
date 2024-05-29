@@ -17,10 +17,9 @@ const Routing = () => {
           </Route>
           <Route path="/dashboard" element={<LayoutDash />}>
             <Route index element={<Inicio />} />
-<<<<<<< HEAD
-=======
+
             <Route path="Bombeo2" element={<Bombeo2/>} />
->>>>>>> master
+
           </Route>
         </Routes>
       </AuthProvider>
