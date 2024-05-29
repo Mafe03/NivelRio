@@ -24,28 +24,32 @@ const Login = () => {
         setAlertMessage(mensaje);
         setAlertOpen(true);
     };
+    
 
     const Login = async (e) => {
         e.preventDefault();
         const request = await fetch("http://192.168.72.25:8080/datasnap/rest/TServerMethods/usuario", {
             method: "POST",
             body: JSON.stringify({
-                ter_num_id: form.ter_numero_id,
+                ter_num_id: form.ter_num_id,
                 ter_clave: form.ter_clave_movil 
             }),
             headers: { "Content-Type": "application/json" },
         });
         const data = await request.json();
-        if (data[0].status === "POST OK") {
+        console.log(data[0].usuario)
+        if (data[0].usuario === "POST OK") {
             let mensaje = data.mensaje;
-            localStorage.setItem("user", form.ter_numero_id);
+            localStorage.setItem("user", JSON.stringify(data[0].ter_num_id));
             mostrarAlerta("Éxito", "Biennvenido", "success");
             setTimeout(() => {
                 window.location.reload();
             }, 500);
         } else {
             setCedula('');
-            let mensaje = data.mensaje;
+            const pass = document.querySelector("#ter_clave_movil")
+            pass.value = "";
+            let mensaje = data[0].usuario;
             mostrarAlerta("Error", mensaje, "error");
         }
     };
@@ -64,8 +68,8 @@ const Login = () => {
                                 <input
                                     className="input100"
                                     type="text"
-                                    name="ter_numero_id"
-                                    id="ter_numero_id"
+                                    name="ter_num_id"
+                                    id="ter_num_id"
                                     placeholder="Cedula"
                                     onChange={(e)=>{handleCedulaChange(e), cambiar(e)}}
                                     value={cedula}
