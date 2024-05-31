@@ -17,6 +17,8 @@
     "@mui/x-data-grid-generator": "^7.5.1",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.6.6",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",

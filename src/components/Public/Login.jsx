@@ -28,8 +28,8 @@ const Login = () => {
 
   const Login = async (e) => {
     e.preventDefault();
-    console.log("LA CEDULA", cedula);
-    console.log("LA CONTRASEÑA", pass);
+   /*  console.log("LA CEDULA", cedula);
+    console.log("LA CONTRASEÑA", pass); */
     const request = await fetch(
       "http://192.168.72.25:8080/datasnap/rest/TServerMethods/usuario",
       {
@@ -42,7 +42,7 @@ const Login = () => {
       }
     );
     const data = await request.json();
-    console.log(data[0].usuario);
+    //console.log(data[0].usuario);
     if (
       data[0].usuario === "USUARIO INVALIDO" ||
       data[0].usuario === "CONTRASE\u00D1A INVALIDA"
