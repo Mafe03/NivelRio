@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+
 import 'primereact/resources/themes/saga-blue/theme.css'; // Importa el tema de PrimeReact
 import 'primereact/resources/primereact.min.css'; // Importa los estilos de PrimeReact
 import 'primeicons/primeicons.css';  

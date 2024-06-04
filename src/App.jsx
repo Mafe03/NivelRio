@@ -1,18 +1,18 @@
+
+import React, { useEffect, useState } from 'react';
+import { PrimeReactProvider } from "primereact/api";
+
 // src/App.jsx
-//import React, { useEffect } from 'react';
+
 import Routing from './router/Routing';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useEffect, useState } from 'react';
-
-
 
 
 
 function App() {
-  
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const [lastAlarmDateTime2, setLastAlarmDateTime2] = useState(null);
+  const [lastAlarmDateTime2, setLastAlarmDateTime2] = useState(null);
+
 
 useEffect(() => {
   const apiUrl = 'http://192.168.72.25:8080/datasnap/rest/TServerMethods/alarmaCaracteristica/44';
@@ -85,8 +85,10 @@ useEffect(() => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   return (
     <>
+    <PrimeReactProvider>
       <Routing />
       <ToastContainer />
+      </PrimeReactProvider>
     </>
   );
 }
