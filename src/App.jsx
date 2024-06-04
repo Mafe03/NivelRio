@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { PrimeReactProvider } from "primereact/api";
 
 // src/App.jsx
@@ -9,7 +10,7 @@ import { toast, ToastContainer } from "react-toastify";
 import Message from "./components/Message"; // Asegúrate de que la ruta es correcta
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.css";
-import React, { useEffect, useState } from "react";
+
 
 async function requestPermission() {
   const permission = await Notification.requestPermission();
