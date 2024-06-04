@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef  } from "react";
 import Navbar from "./Navbar"; // Asegúrate de importar correctamente el componente Navbar
 import Box from "@mui/material/Box";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
@@ -12,6 +12,8 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import DateRangeTwoToneIcon from '@mui/icons-material/DateRangeTwoTone';
 import EventRepeatTwoToneIcon from '@mui/icons-material/EventRepeatTwoTone';
 import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -282,6 +284,103 @@ const Inicio = () => {
     width: key === "fecha" ? 151 : key === "hora" ? 100 : 118, // Ajustar el tamaño de la columna
   }));
 
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  const toastRef = useRef(null);
+  const [errorShown, setErrorShown] = useState(false);
+  
+  useEffect(() => {
+    const apiUrl = 'http://192.168.72.25:8080/datasnap/rest/TServerMethods/alarmaCaracteristica/44';
+  
+    const toastOptions = {
+      position: "top-right",
+      autoClose: false, // Mantener la notificación hasta que se cierre manualmente
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    };
+  
+    const fetchData = async () => {
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error('Error en la solicitud');
+        }
+        const data = await response.json();
+  
+        if (!data || !data.alarma || data.alarma.length === 0) {
+          console.error('No se encontraron datos válidos en la respuesta de la API');
+          return;
+        }
+  
+        const firstAlarm = data.alarma[0];
+  
+        if (!firstAlarm.valorMuestra || !firstAlarm.nivelAlerta || !firstAlarm.fecha_hora_alarma) {
+          console.error('valorMuestra, nivelAlerta o fecha_hora_alarma no se encuentran en los datos de la API');
+          return;
+        }
+  
+        const { valorMuestra, nivelAlerta, fecha_hora_alarma, esAlarma } = firstAlarm;
+        const message = `Nivel Alerta: ${nivelAlerta}. \nFecha y Hora: ${fecha_hora_alarma}. \nValor de Muestra: ${valorMuestra}. `;
+  
+        // Define el color del toast basado en nivelAlerta
+        let toastColor;
+        if (nivelAlerta === 'AMARILLA') {
+          toastColor = '#FFCC00'; // Amarillo
+        } else if (nivelAlerta === 'NARANJA') {
+          toastColor = '#FFA500'; // Naranja
+        } else if (nivelAlerta === 'ROJA') {
+          toastColor = '#FF0000'; // Rojo
+        } else {
+          toastColor = '#FFFFFF'; // Blanco por defecto si el nivelAlerta no coincide
+        }
+  
+        const customToastOptions = {
+          ...toastOptions,
+          style: { backgroundColor: toastColor, color: '#000000', whiteSpace: 'pre-wrap'}, // Estilo personalizado
+        };
+  
+        // Crear la notificación si no existe
+        if (!toastRef.current) {
+          toastRef.current = toast.info(message, customToastOptions);
+        } else {
+          // Actualizar la notificación existente
+          toast.update(toastRef.current, {
+            render: message,
+            ...customToastOptions,
+          });
+        }
+  
+        // Reiniciar el estado de errorShown
+        setErrorShown(false);
+      } catch (error) {
+        console.error('Error al obtener los datos:', error);
+        // Mostrar la notificación de error solo si no se ha mostrado antes
+        if (!errorShown) {
+          setErrorShown(true);
+          toast.error('Error al obtener los datos', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+        }
+      }
+    };
+  
+    const intervalId = setInterval(fetchData, 60 * 1000); // Actualizar cada 1 minuto
+  
+    fetchData(); // Realiza una solicitud inmediata cuando el componente se monta
+  
+    return () => clearInterval(intervalId);
+  }, []);
+  ////////////////////////////////////////////////////////////////////////////////////////
   return (
     <>
       <Aside abrir={abrir} setAbrir={setAbrir} />
@@ -481,6 +580,7 @@ const Inicio = () => {
                     />
                   </Box>
                 </CustomTabPanel>
+                <ToastContainer />
               </div>
             </div>
            

@@ -11,7 +11,7 @@ import Planta2 from '../components/Dashboard/Planta2';
 
 const Routing = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter>    
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
