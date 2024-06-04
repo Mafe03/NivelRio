@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <PrimeReactProvider value={{ unstyled: true, pt: {} }}>
+      <PrimeReactProvider >
     <Routing/>
     </PrimeReactProvider>
     </>

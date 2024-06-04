@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
+import Ubicacion from "../../helper/Ubicacion";
+
 const Aside = ({ abrir }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -33,11 +35,7 @@ const Aside = ({ abrir }) => {
               aria-hidden="true"
               id="iconSidenav"
             ></i>
-            <a
-              className="navbar-brand m-0"
-             
-              target="_blank"
-            >
+            <a className="navbar-brand m-0" target="_blank">
               <img
                 src={logo}
                 className="navbar-brand-img h-100"
@@ -54,36 +52,69 @@ const Aside = ({ abrir }) => {
             id="sidenav-collapse-main"
           >
             <ul className="navbar-nav">
-              
-            <li className="nav-item">
-  <NavLink
-    to="/"
-    className="nav-link text-white bg-gradient-primary1"
-    activeClassName="active" // Agrega la clase "active" cuando el enlace está activo
-  >
-    <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-      <i className="material-icons opacity-10">dashboard</i>
-    </div>
-    <span className="nav-link-text ms-1">Planta N°1</span>
-  </NavLink>
-</li>
-                
               <li className="nav-item">
-              <NavLink to="/Dashboard/Bombeo2" isActive={(match, location) => {
-      // Devuelve true si la ruta actual coincide con "/Bombeo2"
-      return location.pathname === "/Bombeo2";
-    }}>
-      <a className={`nav-link text-white bg-gradient-primary1 ${location.pathname === "/Bombeo2" ? "active" : ""}`}>
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                    <i className="material-icons opacity-10">receipt_long</i>
-                  </div>
-                  <span className="nav-link-text ms-1">Planta N°2</span>
-                </a>
+                <NavLink
+                  to="/Dashboard"
+                  isActive={(match, location) => {
+                    // Devuelve true si la ruta actual coincide con "/Bombeo2"
+                    return location.pathname === "/Dashboard";
+                  }}
+                >
+                  <a
+                    className={`nav-link text-white ${
+                      location.pathname === "/Dashboard" ? "active" : ""
+                    }`}
+                  >
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                      <i className="material-icons opacity-10">home</i>
+                    </div>
+                    <span className="nav-link-text ms-1">Bombeo N°2</span>
+                  </a>
                 </NavLink>
               </li>
-             
+              <li className="nav-item">
+                <NavLink
+                  to="/Dashboard/Planta1"
+                  isActive={(match, location) => {
+                    // Devuelve true si la ruta actual coincide con "/Bombeo2"
+                    return location.pathname === "/Dashboard/Planta1";
+                  }}
+                >
+                  <a
+                    className={`nav-link text-white ${
+                      location.pathname === "/Dashboard/Planta1" ? "active" : ""
+                    }`}
+                  >
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                      <i className="material-icons opacity-10">receipt</i>
+                    </div>
+                    <span className="nav-link-text ms-1">Planta N°1</span>
+                  </a>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/Dashboard/Planta2"
+                  isActive={(match, location) => {
+                    // Devuelve true si la ruta actual coincide con "/Bombeo2"
+                    return location.pathname === "/Dashboard/Planta2";
+                  }}
+                >
+                  <a
+                    className={`nav-link text-white   ${
+                      location.pathname === "/Dashboard/Planta2" ? "active" : ""
+                    }`}
+                  >
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                      <i className="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span className="nav-link-text ms-1">Planta N°2</span>
+                  </a>
+                </NavLink>
+              </li>
             </ul>
           </div>
+          <Ubicacion />
         </aside>
       )) ||
         (abrir === true ? (
@@ -97,10 +128,7 @@ const Aside = ({ abrir }) => {
                 aria-hidden="true"
                 id="iconSidenav"
               ></i>
-              <a
-                className="navbar-brand m-0"
-                target="_blank"
-              >
+              <a className="navbar-brand m-0" target="_blank">
                 <img
                   src={logo}
                   className="navbar-brand-img h-100"
@@ -117,35 +145,69 @@ const Aside = ({ abrir }) => {
               id="sidenav-collapse-main"
             >
               <ul className="navbar-nav">
-                <li className="nav-item">
-                <NavLink to="/">
-                <a class="nav-link text-white " href="">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                      <i className="material-icons opacity-10">dashboard</i>
+              <li className="nav-item">
+                <NavLink
+                  to="/Dashboard"
+                  isActive={(match, location) => {
+                    // Devuelve true si la ruta actual coincide con "/Bombeo2"
+                    return location.pathname === "/Dashboard";
+                  }}
+                >
+                  <a
+                    className={`nav-link text-white ${
+                      location.pathname === "/Dashboard" ? "active" : ""
+                    }`}
+                  >
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                      <i className="material-icons opacity-10">home</i>
+                    </div>
+                    <span className="nav-link-text ms-1">Bombeo N°2</span>
+                  </a>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/Dashboard/Planta1"
+                  isActive={(match, location) => {
+                    // Devuelve true si la ruta actual coincide con "/Bombeo2"
+                    return location.pathname === "/Dashboard/Planta1";
+                  }}
+                >
+                  <a
+                    className={`nav-link text-white ${
+                      location.pathname === "/Dashboard/Planta1" ? "active" : ""
+                    }`}
+                  >
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                      <i className="material-icons opacity-10">receipt</i>
                     </div>
                     <span className="nav-link-text ms-1">Planta N°1</span>
                   </a>
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-              <NavLink to="Bombeo2">
-              <a class="nav-link text-white " href="">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                    <i className="material-icons opacity-10">receipt_long</i>
-                  </div>
-                  <span className="nav-link-text ms-1">Planta N°2</span>
-                </a>
                 </NavLink>
               </li>
-               
-                
-               
-               
-               
-                
-               
-              </ul>
+              <li className="nav-item">
+                <NavLink
+                  to="/Dashboard/Planta2"
+                  isActive={(match, location) => {
+                    // Devuelve true si la ruta actual coincide con "/Bombeo2"
+                    return location.pathname === "/Dashboard/Planta2";
+                  }}
+                >
+                  <a
+                    className={`nav-link text-white   ${
+                      location.pathname === "/Dashboard/Planta2" ? "active" : ""
+                    }`}
+                  >
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                      <i className="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span className="nav-link-text ms-1">Planta N°2</span>
+                  </a>
+                </NavLink>
+              </li>
+            </ul>
             </div>
+            <Ubicacion />
           </aside>
         ) : (
           <></>

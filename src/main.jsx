@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-
+import 'primereact/resources/themes/saga-blue/theme.css'; // Importa el tema de PrimeReact
+import 'primereact/resources/primereact.min.css'; // Importa los estilos de PrimeReact
+import 'primeicons/primeicons.css';  
 
 //////LOGIN///////
 import "./assets/vendor2/bootstrap/css/bootstrap.min.css";
@@ -13,9 +15,7 @@ import "./assets/vendor2/select2/select2.min.css";
 import "./assets/css2/util.css";
 import "./assets/css2/main.css";
 
-import 'primereact/resources/themes/saga-blue/theme.css'; // Importa el tema de PrimeReact
-import 'primereact/resources/primereact.min.css'; // Importa los estilos de PrimeReact
-import 'primeicons/primeicons.css';  
+
 
 ///////Dashboard///////
 

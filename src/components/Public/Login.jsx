@@ -4,6 +4,7 @@ import HelperForm from "../../helper/HelperForm";
 import withReactContent from "sweetalert2-react-content";
 import Swal2 from "sweetalert2";
 import Alerta from "./Alerta";
+import { Password } from "primereact/password";
 
 const MySwal = withReactContent(Swal2);
 
@@ -14,13 +15,14 @@ const Login = () => {
   const [alertSeverity, setAlertSeverity] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
   const { form, cambiar } = HelperForm({});
+  const [value, setValue] = useState("");
 
   const handleCedulaChange = (event) => {
     const cedulaValue = event.target.value.replace(/\D/g, "");
     setCedula(cedulaValue);
   };
 
-  const mostrarAlerta = (titulo, mensaje, icono) => {
+  const mostrarAlerta = (mensaje, icono) => {
     setAlertSeverity(icono);
     setAlertMessage(mensaje);
     setAlertOpen(true);
@@ -28,7 +30,7 @@ const Login = () => {
 
   const Login = async (e) => {
     e.preventDefault();
-   /*  console.log("LA CEDULA", cedula);
+    /*  console.log("LA CEDULA", cedula);
     console.log("LA CONTRASEÑA", pass); */
     const request = await fetch(
       "http://192.168.72.25:8080/datasnap/rest/TServerMethods/usuario",
@@ -48,13 +50,12 @@ const Login = () => {
       data[0].usuario === "CONTRASE\u00D1A INVALIDA"
     ) {
       setCedula("");
-      const pass = document.querySelector("#ter_clave_movil");
-      pass.value = "";
+      setPass("");
       let mensaje = data[0].usuario;
-      mostrarAlerta("Error", mensaje, "error");
+      mostrarAlerta(mensaje, "error");
     } else {
       localStorage.setItem("user", JSON.stringify(data[0]));
-      mostrarAlerta("Éxito", "Biennvenido", "success");
+      mostrarAlerta("Bienvenido", "success");
       setTimeout(() => {
         window.location.reload();
       }, 500);
@@ -76,7 +77,7 @@ const Login = () => {
 
               <div
                 className="wrap-input100 validate-input m-b-23"
-                data-validate="Username is required"
+                data-validate="Usuario requerido"
               >
                 <span className="label-input100">Cedula</span>
                 <input
@@ -86,7 +87,8 @@ const Login = () => {
                   id="ter_num_id"
                   placeholder="Cedula"
                   onChange={(e) => {
-                    handleCedulaChange(e), cambiar(e);
+                    handleCedulaChange(e);
+                    cambiar(e);
                   }}
                   value={cedula}
                 />
@@ -94,20 +96,21 @@ const Login = () => {
               </div>
 
               <div
-                className="wrap-input100 validate-input"
-                data-validate="Password is required"
+                className="wrap-input100 validate-input m-b-23"
+                data-validate="Contraseña requerida"
               >
                 <span className="label-input100">Contraseña</span>
-                <input
-                  className="input100"
-                  type="password"
+                <Password
+                  inputClassName="input100"
                   name="ter_clave_movil"
                   id="ter_clave_movil"
                   placeholder="Contraseña"
-                  onChange={(e) => {
-                    setPass(e.target.value);
-                  }}
+                  onChange={(e) => setPass(e.target.value)}
                   value={pass}
+                  toggleMask
+                  feedback={false}
+                  border={false}
+                  keyfilter="int"
                 />
                 <span className="focus-input100" data-symbol="&#xf190;"></span>
               </div>
