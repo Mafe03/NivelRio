@@ -9,7 +9,7 @@ import Bombeo2 from '../components/Dashboard/Bombeo2';
 
 const Routing = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter>    
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
