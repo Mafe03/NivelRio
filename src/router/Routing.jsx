@@ -19,15 +19,15 @@ const Routing = () => {
           </Route>
           <Route path="/dashboard" element={<LayoutDash />}>
             <Route index element={<Inicio />} />
-<<<<<<< HEAD
+
             <Route path="Planta1" element={<Planta1/>} />
             <Route path="Planta2" element={<Planta2/>} />
             <Route path="Cerrar" element={<CerrarSesion />} />
-=======
+
 
             <Route path="Bombeo2" element={<Bombeo2/>} />
 
->>>>>>> 5b0e9f52d990d396d9112541c70c12059c7f2739
+
           </Route>
         </Routes>
       </AuthProvider>

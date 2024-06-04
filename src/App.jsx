@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 import { useState } from 'react'
 import Routing from './router/Routing'
 import { PrimeReactProvider } from 'primereact/api';
-=======
+
 // src/App.jsx
 import React, { useEffect } from 'react';
 import Routing from './router/Routing';
@@ -27,7 +27,7 @@ async function requestPermission() {
     alert('You denied the notification');
   }
 }
->>>>>>> 5b0e9f52d990d396d9112541c70c12059c7f2739
+
 
 function App() {
   useEffect(() => {
@@ -45,14 +45,14 @@ function App() {
 
   return (
     <>
-<<<<<<< HEAD
+
       <PrimeReactProvider >
     <Routing/>
     </PrimeReactProvider>
-=======
+
       <ToastContainer />
       <Routing />
->>>>>>> 5b0e9f52d990d396d9112541c70c12059c7f2739
+
     </>
   );
 }
