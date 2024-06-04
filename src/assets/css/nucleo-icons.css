@@ -597,6 +597,7 @@ License - nucleoapp.com/license/
   background-image: linear-gradient(195deg, #2565db 0%, #0f40a2 100%);
 }
 
+
 .bg-gradient-primary2 {
   background-image: linear-gradient(195deg, #3c77e6 0%, #3863b8 100%);
  
@@ -606,6 +607,7 @@ License - nucleoapp.com/license/
  
 }
 
+<<<<<<< HEAD
 .input100 {
   outline: none;
   box-shadow: none;
@@ -616,3 +618,6 @@ License - nucleoapp.com/license/
   box-shadow: none;
   border-color: transparent;
 }
+=======
+
+>>>>>>> 5b0e9f52d990d396d9112541c70c12059c7f2739

@@ -17,12 +17,17 @@
     "@mui/x-data-grid-generator": "^7.5.1",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
+<<<<<<< HEAD
     "primeicons": "^7.0.0",
     "primereact": "^10.6.6",
+=======
+    "firebase": "^10.12.1",
+>>>>>>> 5b0e9f52d990d396d9112541c70c12059c7f2739
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
+    "react-toastify": "^10.0.5",
     "sweetalert2": "^11.11.0",
     "sweetalert2-react-content": "^5.0.7"
   },
