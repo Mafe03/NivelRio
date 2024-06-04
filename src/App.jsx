@@ -3,16 +3,14 @@ import { PrimeReactProvider } from "primereact/api";
 
 // src/App.jsx
 
-import Routing from "./router/Routing";
-import { getToken, onMessage } from "firebase/messaging";
-import { messaging } from "./firebase/firebaseConfig"; // Asegúrate de que la ruta es correcta
+import Routing from "./router/Routing";// Asegúrate de que la ruta es correcta
 import { toast, ToastContainer } from "react-toastify";
 import Message from "./components/Message"; // Asegúrate de que la ruta es correcta
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.css";
 
 
-async function requestPermission() {
+/* async function requestPermission() {
   const permission = await Notification.requestPermission();
   if (permission === "granted") {
     try {
@@ -24,7 +22,7 @@ async function requestPermission() {
   } else if (permission === "denied") {
     alert("You denied the notification");
   }
-}
+} */
 
 function App() {
   
