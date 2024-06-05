@@ -85,7 +85,7 @@ const Aside = ({ abrir }) => {
                       location.pathname === "/Dashboard/Planta1" ? "active" : ""
                     }`}
                   >
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
                       <i className="material-icons opacity-10">receipt</i>
                     </div>
                     <span className="nav-link-text ms-1">Planta N°1</span>
@@ -105,7 +105,7 @@ const Aside = ({ abrir }) => {
                       location.pathname === "/Dashboard/Planta2" ? "active" : ""
                     }`}
                   >
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
                       <i className="material-icons opacity-10">receipt_long</i>
                     </div>
                     <span className="nav-link-text ms-1">Planta N°2</span>
@@ -158,7 +158,7 @@ const Aside = ({ abrir }) => {
                       location.pathname === "/Dashboard" ? "active" : ""
                     }`}
                   >
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
                       <i className="material-icons opacity-10">home</i>
                     </div>
                     <span className="nav-link-text ms-1">Bombeo N°2</span>
@@ -178,7 +178,7 @@ const Aside = ({ abrir }) => {
                       location.pathname === "/Dashboard/Planta1" ? "active" : ""
                     }`}
                   >
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
                       <i className="material-icons opacity-10">receipt</i>
                     </div>
                     <span className="nav-link-text ms-1">Planta N°1</span>
@@ -198,7 +198,7 @@ const Aside = ({ abrir }) => {
                       location.pathname === "/Dashboard/Planta2" ? "active" : ""
                     }`}
                   >
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
                       <i className="material-icons opacity-10">receipt_long</i>
                     </div>
                     <span className="nav-link-text ms-1">Planta N°2</span>
