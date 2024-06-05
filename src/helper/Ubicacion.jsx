@@ -5,7 +5,7 @@ const Ubicacion = () => {
 
   useEffect(() => {
     localStorage.setItem("lastLocation", ubi.pathname);
-    console.log("lastLocation", ubi.pathname)
+   /*  console.log("lastLocation", ubi.pathname) */
   }, [ubi]);
 
   useEffect(() => {
