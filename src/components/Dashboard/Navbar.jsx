@@ -7,11 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const MySwal = withReactContent(Swal2);
 
-
-
 const Navbar = ({ abrir, setAbrir, pageTitle }) => {
   const datos = JSON.parse(localStorage.getItem("user"));
-  
 
   const toggleAside = () => {
     setAbrir(!abrir);
@@ -27,7 +24,6 @@ const Navbar = ({ abrir, setAbrir, pageTitle }) => {
     }
   };
 
-
   const Navigate = useNavigate();
   const CerraSesion = () => {
     MySwal.fire({
@@ -38,7 +34,7 @@ const Navbar = ({ abrir, setAbrir, pageTitle }) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Sí, deseo salir!",
-      cancelButtonText: "Cancelar"
+      cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
         MySwal.fire({
@@ -55,7 +51,6 @@ const Navbar = ({ abrir, setAbrir, pageTitle }) => {
 
   return (
     <>
-        
       <nav
         className="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
         id="navbarBlur"
@@ -93,33 +88,40 @@ const Navbar = ({ abrir, setAbrir, pageTitle }) => {
                   <i className="sidenav-toggler-line"></i>
                 </div>
               </a>
-              <div className="card flex flex-wrap gap-2 justify-content-center">
-              
-            </div>
-           
-              <a  className="nav-link text-body p-0 px-3" icon="pi pi-check" onClick={CerraSesion}>
+              <div className="card flex flex-wrap gap-2 justify-content-center"></div>
+              <a
+                className="nav-link text-body p-0 px-3"
+                icon="pi pi-check"
+                onClick={CerraSesion}
+              >
                 <i className="fa fa-sign-out fixed-plugin-button-nav cursor-pointer"></i>
               </a>
             </li>
-            <li className="nav-item px-3 d-flex align-items-center"></li>
           </ul>
-          <div className="d-flex align-items-center " >
+          <div className="d-flex align-items-center ">
             <Avatar
               alt="Remy Sharp"
               src={desencriptarImagenBase64(datos.ter_foto)}
-              sx={{ width: 65, height: 65, marginLeft: 10}}
+              sx={{ width: 65, height: 65, marginLeft: 10 }}
             />
             <span className="nav-link-text mt-2 ">
               {datos.ter_nombre} {datos.ter_apellido}
             </span>
-            
+            <div className="d-none d-xl-block">
+              {" "}
+              {/* Oculta en pantallas pequeñas */}
+              <a
+                className="nav-link text-body p-0 px-3"
+                icon="pi pi-check"
+                onClick={CerraSesion}
+              >
+                <i className="fa fa-sign-out fixed-plugin-button-nav cursor-pointer"></i>
+              </a>
+            </div>
           </div>
-          
         </div>
       </nav>
       <hr className="dark horizontal my-0" />
-
-      
     </>
   );
 };
